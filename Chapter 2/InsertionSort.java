@@ -5,9 +5,11 @@ public class InsertionSort {
         int[] b = {31, 41, 59, 26, 41, 58};
 
         arrayPrinter(a);
-        insertionSort(a);
+        insertionSortAscending(a);
+        insertionSortDescending(a);
         arrayPrinter(b);
-        insertionSort(b);
+        insertionSortAscending(b);
+        insertionSortDescending(b);
     }
 
     public static void arrayPrinter(int[] array){
@@ -17,17 +19,32 @@ public class InsertionSort {
         System.out.println("\n");
     }
 
-    public static void insertionSort(int[] a){
+    public static void insertionSortAscending(int[] a){
         int key, i;
         for(int j = 1; j < a.length; j++){
             key = a[j];
             i = j - 1;
             while(i >= 0  && a[i] > key){
                 a[i + 1] = a[i];
-                i = i - 1;
+                i--;
             }
             a[i + 1] = key;
         }
+        arrayPrinter(a);
+    }
+
+    public static void insertionSortDescending(int[] a){
+        int key, i;
+        for(int j = 1; j < a.length; j++){
+            key = a[j];
+            i = j - 1;
+            while(i >= 0 && a[i] < key){
+                a[i+1] = a[i];
+                i--;
+            }
+            a[i+1] = key;
+        }
+        
         arrayPrinter(a);
     }
 
